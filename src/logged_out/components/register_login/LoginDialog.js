@@ -59,6 +59,8 @@ function LoginDialog(props) {
       }, 1500);
     } else {
       setTimeout(() => {
+        const accessToken = btoa(loginEmail.current.value); 
+        localStorage.setItem('accessToken', accessToken);
         history.push("/c/dashboard");
       }, 150);
     }

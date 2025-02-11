@@ -322,6 +322,7 @@ function NavBar(props) {
                     divider={index !== menuItems.length - 1}
                     className={classes.permanentDrawerListItem}
                     onClick={() => {
+                      localStorage.removeItem('accessToken');
                       links.current[index].click();
                     }}
                     aria-label={

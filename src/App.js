@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import theme from "./theme";
 import GlobalStyles from "./GlobalStyles";
 import Pace from "./shared/components/Pace";
+import ProtectedRoute from "./shared/components/ProtectedRoute";
 
 const LoggedInComponent = lazy(() => import("./logged_in/components/Main"));
 
@@ -19,9 +20,7 @@ function App() {
           <Pace color={theme.palette.primary.light} />
           <Suspense fallback={<Fragment />}>
             <Switch>
-              <Route path="/c">
-                <LoggedInComponent />
-              </Route>
+              <ProtectedRoute path="/c" component={LoggedInComponent} />
               <Route>
                 <LoggedOutComponent />
               </Route>
